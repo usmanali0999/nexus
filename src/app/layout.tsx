@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,21 +16,8 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Nexus — AI-Powered Team Collaboration Platform",
   description:
-    "Real-time collaboration with AI superpowers. Manage projects, brainstorm on whiteboards, and ship faster with your team.",
-  keywords: [
-    "collaboration",
-    "project management",
-    "AI",
-    "team",
-    "real-time",
-    "kanban",
-  ],
-  authors: [{ name: "Nexus" }],
-  openGraph: {
-    title: "Nexus — AI-Powered Team Collaboration Platform",
-    description: "Real-time collaboration with AI superpowers.",
-    type: "website",
-  },
+    "Real-time collaboration with AI superpowers. Plan, build, and ship faster with your team.",
+  keywords: ["collaboration", "project management", "AI", "team", "real-time"],
 };
 
 export default function RootLayout({
@@ -43,6 +31,18 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         {children}
+        <Toaster
+          theme="dark"
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "rgba(20, 20, 28, 0.95)",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
+              color: "#fff",
+              backdropFilter: "blur(20px)",
+            },
+          }}
+        />
       </body>
     </html>
   );
