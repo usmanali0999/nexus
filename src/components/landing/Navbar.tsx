@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -61,21 +62,21 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center gap-2">
-              <a
-                href="#"
-                className="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors"
-              >
-                Sign in
-              </a>
-              <a
-                href="#"
-                className="group relative inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-lg bg-white/[0.08] hover:bg-white/[0.12] border border-white/[0.08] transition-all duration-200"
-              >
-                Get Started
-                <span className="text-violet-300">→</span>
-              </a>
-            </div>
+<div className="hidden lg:flex items-center gap-2">
+  <Link
+    href="/login"
+    className="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors"
+  >
+    Sign in
+  </Link>
+  <Link
+    href="/register"
+    className="group relative inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-lg bg-white/[0.08] hover:bg-white/[0.12] border border-white/[0.08] transition-all duration-200"
+  >
+    Get Started
+    <span className="text-violet-300">→</span>
+  </Link>
+</div>
 
             {/* Mobile Toggle */}
             <button
@@ -125,19 +126,21 @@ export default function Navbar() {
                 ))}
               </nav>
               <div className="mt-3 pt-3 border-t border-white/[0.06] flex flex-col gap-2">
-                <a
-                  href="#"
-                  className="px-4 py-2.5 text-center text-sm text-gray-300 hover:text-white rounded-xl hover:bg-white/[0.06] transition-all"
-                >
-                  Sign in
-                </a>
-                <a
-                  href="#"
-                  className="px-4 py-2.5 text-center text-sm font-medium text-white rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600"
-                >
-                  Get Started
-                </a>
-              </div>
+  <Link
+    href="/login"
+    onClick={() => setIsMobileOpen(false)}
+    className="px-4 py-2.5 text-center text-sm text-gray-300 hover:text-white rounded-xl hover:bg-white/[0.06] transition-all"
+  >
+    Sign in
+  </Link>
+  <Link
+    href="/register"
+    onClick={() => setIsMobileOpen(false)}
+    className="px-4 py-2.5 text-center text-sm font-medium text-white rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600"
+  >
+    Get Started
+  </Link>
+</div>
             </motion.div>
           </motion.div>
         )}

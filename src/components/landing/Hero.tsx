@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Sparkles, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -91,21 +92,21 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-12"
           >
-            <a
-              href="#"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white rounded-xl bg-white hover:bg-gray-100 transition-all duration-200 w-full sm:w-auto"
-            >
-              <span className="text-gray-900">Start for free</span>
-              <ArrowRight className="w-4 h-4 text-gray-900 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            <Link
+  href="/register"
+  className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white rounded-xl bg-white hover:bg-gray-100 transition-all duration-200 w-full sm:w-auto"
+>
+  <span className="text-gray-900">Start for free</span>
+  <ArrowRight className="w-4 h-4 text-gray-900 group-hover:translate-x-0.5 transition-transform" />
+</Link>
 
-            <a
-              href="#"
-              className="group inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-gray-300 hover:text-white rounded-xl glass hover:bg-white/[0.06] transition-all duration-200 w-full sm:w-auto"
-            >
-              <Play className="w-3.5 h-3.5 fill-current" />
-              Watch demo
-            </a>
+<Link
+  href="/login"
+  className="group inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-gray-300 hover:text-white rounded-xl glass hover:bg-white/[0.06] transition-all duration-200 w-full sm:w-auto"
+>
+  <Play className="w-3.5 h-3.5 fill-current" />
+  Watch demo
+</Link>
           </motion.div>
 
           {/* Trust Indicators */}
